@@ -1,0 +1,28 @@
+.sidebar {
+  background: #34495e;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-basis: 20%;
+  order: -1;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5rem;
+  width: 50%;
+}
+
+hr {
+  width: 70%;
+}
+
+.item {
+  color: #eee;
+  font-size: 20px;
+  padding: 0.5rem 2rem 0.5rem 0.5rem;
+  text-align: right;
+}
