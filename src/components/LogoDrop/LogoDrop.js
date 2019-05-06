@@ -6,7 +6,7 @@ import { uploadLogo } from '../../actions';
 
 import styles from './LogoDrop.module.css';
 
-const maxImgSize = 1048576;
+const imgMaxSize = 1000000;
 const Container = styled.div`
   flex: 1;
   display: flex;
@@ -28,7 +28,17 @@ const Container = styled.div`
 `;
 
 class LogoDrop extends Component {
-  onDrop = files => {
+  onDrop = (files, rejectedFiles) => {
+    if (rejectedFiles && rejectedFiles.length > 0) {
+      let rejectFile = rejectedFiles[0];
+      let rejectFileSize = rejectFile.size;
+
+      if (rejectFileSize > imgMaxSize) {
+        alert('The file size is too big! 1 MB Limit!')
+        return false
+      }
+    }
+
     const currentFile = files[0];
     const myFileItemReader = new FileReader()
     myFileItemReader.addEventListener('load', () =>{
@@ -42,19 +52,19 @@ class LogoDrop extends Component {
       <div className={styles.logodrop}>
         <h2>Drop Logo Here</h2>
         <Container>
-        <Dropzone
-          onDrop={this.onDrop}
-          maxSize={maxImgSize}
-          multiple={false}
-          accept='image/*'
-        >
-          {({ getRootProps, getInputProps, isDragActive }) => (
-            <div {...getRootProps()}>
-              <input {...getInputProps()} />
-              { isDragActive ? "Drop it like it's hot" : "Click me or drag a file to upload" }
-            </div>
-          )}
-        </Dropzone>
+          <Dropzone
+            onDrop={this.onDrop}
+            maxSize={imgMaxSize}
+            multiple={false}
+            accept='image/*'
+          >
+            {({ getRootProps, getInputProps, isDragActive }) => (
+              <div {...getRootProps()}>
+                <input {...getInputProps()} />
+                { isDragActive ? "Drop it like it's hot" : "Click me or drag a file to upload (1 MB Limit)" }
+              </div>
+            )}
+          </Dropzone>
         </Container>
       </div>
     )

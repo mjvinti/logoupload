@@ -12,16 +12,16 @@ const SideBar = ({ uploadedLogo }) => {
           alt="logo"
         />
         <div className={styles.item}>
-          <i class="far fa-newspaper"></i> Content
+          <i className="far fa-newspaper"></i> Content
         </div>
         <div className={styles.item}>
-          <i class="far fa-calendar-check"></i> Calendar
+          <i className="far fa-calendar-check"></i> Calendar
         </div>
         <div className={styles.item}>
-          <i class="fas fa-chart-line"></i> Results
+          <i className="fas fa-chart-line"></i> Results
         </div>
         <div className={styles.item}>
-          <i class="far fa-question-circle"></i> Help
+          <i className="far fa-question-circle"></i> Help
         </div>
         <br />
         <hr />
@@ -30,10 +30,10 @@ const SideBar = ({ uploadedLogo }) => {
         <div className={styles.item}>Admin</div>
         <div className={styles.item}>Queues</div>
         <div className={styles.item}>
-          <i class="far fa-thumbs-up"></i> Engagement
+          <i className="far fa-thumbs-up"></i> Engagement
         </div>
         <div className={styles.item}>
-          <i class="fas fa-sliders-h"></i> Settings
+          <i className="fas fa-sliders-h"></i> Settings
         </div>
         <div className={styles.item}>Users</div>
       </div>
